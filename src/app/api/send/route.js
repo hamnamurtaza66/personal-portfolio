@@ -10,11 +10,11 @@ export const revalidate = 0;
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.FROM_EMAIL;
 
+// ✅ Handle POST requests (sending email)
 export async function POST(req) {
   try {
     const { email, subject, message } = await req.json();
 
-    // Send plain text email (safe for Vercel deployment)
     const data = await resend.emails.send({
       from: fromEmail,
       to: [fromEmail, email],
@@ -37,4 +37,9 @@ export async function POST(req) {
       { status: 500 }
     );
   }
+}
+
+// ✅ Handle GET requests (used by Next.js during build or for testing)
+export async function GET() {
+  return NextResponse.json({ status: "API is working ✅" });
 }
