@@ -1,12 +1,14 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
+// Prevent Next.js from trying to statically optimize this API route
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+export const revalidate = 0;
+
 // Initialize Resend with your API key (must be set in Vercel → Project Settings → Environment Variables)
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.FROM_EMAIL;
-
-// Force this route to run dynamically (avoids static build errors on Vercel)
-export const dynamic = "force-dynamic";
 
 export async function POST(req) {
   try {
