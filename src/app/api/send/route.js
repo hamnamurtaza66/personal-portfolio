@@ -1,31 +1,38 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-// Prevent Next.js from trying to statically optimize this API route
+// Ensure dynamic API route
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 export const revalidate = 0;
 
-// Initialize Resend with your API key (must be set in Vercel → Project Settings → Environment Variables)
-const resend = new Resend(process.env.RESEND_API_KEY);
-const fromEmail = process.env.FROM_EMAIL;
+// Initialize Resend with API key
+const resend = new Resend(process.env.RESEND_API_KEY ?? "");
+const fromEmail = process.env.FROM_EMAIL ?? "onboarding@resend.dev";
 
-// ✅ Handle POST requests (sending email)
+// POST handler
 export async function POST(req) {
   try {
     const { email, subject, message } = await req.json();
+
+    if (!email || !subject || !message) {
+      return NextResponse.json(
+        { success: false, error: "Missing required fields" },
+        { status: 400 }
+      );
+    }
 
     const data = await resend.emails.send({
       from: fromEmail,
       to: [fromEmail, email],
       subject,
       text: `
-        ${subject}
+        Subject: ${subject}
 
-        Thank you for contacting us!
-
-        New message submitted:
+        New message:
         ${message}
+
+        Reply to: ${email}
       `,
     });
 
@@ -39,7 +46,7 @@ export async function POST(req) {
   }
 }
 
-// ✅ Handle GET requests (used by Next.js during build or for testing)
+// GET handler
 export async function GET() {
   return NextResponse.json({ status: "API is working ✅" });
 }
