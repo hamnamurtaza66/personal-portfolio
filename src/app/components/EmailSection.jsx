@@ -4,39 +4,32 @@ import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
+import emailjs from "@emailjs/browser";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = {
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
-    const JSONdata = JSON.stringify(data);
-    const endpoint = "/api/send";
+    setLoading(true);
 
-    // Form the request for sending data to the server.
-    const options = {
-      // The method is POST because we are sending data.
-      method: "POST",
-      // Tell the server we're sending JSON.
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // Body of the request is the JSON data we created above.
-      body: JSONdata,
-    };
+    try {
+      const result = await emailjs.sendForm(
+        "service_0k7bkie",        // ✅ Service ID
+        "template_kvof6h2",       // ✅ Template ID
+        e.target,                 // ✅ Form data directly
+        "l4G1X6ncG5GQHVQRs"       // ✅ Public Key
+      );
 
-    const response = await fetch(endpoint, options);
-    const resData = await response.json();
-
-    if (response.status === 200) {
-      console.log("Message sent.");
+      console.log(result.text);
       setEmailSubmitted(true);
+    } catch (error) {
+      console.error("EmailJS Error:", error.text);
+      alert("Failed to send email. Please try again!");
     }
+
+    setLoading(false);
   };
 
   return (
@@ -50,16 +43,22 @@ const EmailSection = () => {
           Let&apos;s Connect
         </h5>
         <p className="text-[#ADB7BE] mb-4 max-w-md">
-          {" "}
           I&apos;m currently looking for new opportunities, my inbox is always
           open. Whether you have a question or just want to say hi, I&apos;ll
           try my best to get back to you!<br />
           <span className="text-white">Email:</span>
-          <a href="mailto:hamnamurtaza66@gmail.com" className="text-primary-500 hover:underline ml-1">
+          <a
+            href="mailto:hamnamurtaza66@gmail.com"
+            className="text-primary-500 hover:underline ml-1"
+          >
             hamnamurtaza66@gmail.com
-          </a> <br />
+          </a>{" "}
+          <br />
           <span className="text-white">Phone:</span>
-          <a href="tel:+921234567890" className="text-primary-500 hover:underline ml-1">
+          <a
+            href="tel:+921234567890"
+            className="text-primary-500 hover:underline ml-1"
+          >
             +92 300 6884225
           </a>
         </p>
@@ -71,12 +70,12 @@ const EmailSection = () => {
             <Image src={LinkedinIcon} alt="Linkedin Icon" />
           </Link>
         </div>
-
       </div>
+
       <div>
         {emailSubmitted ? (
           <p className="text-green-500 text-sm mt-2">
-            Email sent successfully!
+            ✅ Email sent successfully!
           </p>
         ) : (
           <form className="flex flex-col" onSubmit={handleSubmit}>
@@ -122,15 +121,17 @@ const EmailSection = () => {
               <textarea
                 name="message"
                 id="message"
+                required
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                 placeholder="Let's talk about..."
               />
             </div>
             <button
               type="submit"
+              disabled={loading}
               className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
             >
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </button>
           </form>
         )}
