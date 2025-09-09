@@ -17,16 +17,16 @@ const HeroSection = () => {
         >
           <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-8xl lg:leading-normal font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
-              Hello, I&apos;m{" "}
+              Welcome to{" "}
             </span>
             <br />
             <TypeAnimation
               sequence={[
-                "Hamna",
+                "KM Developer",
                 1000,
-                "Web Developer",
+                "Web Development & Design",
                 1000,
-                "UI/UX Designer",
+                "Digital Solutions",
                 1000,
               ]}
               wrapper="span"
@@ -35,30 +35,30 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            A passionate web developer with expertise in creating dynamic,
-            user-friendly websites. I specialize in React, Next.js, and
-            JavaScript, and am committed to crafting responsive and efficient web
-            applications. I enjoy solving complex problems and creating seamless
-            user experiences.
+            A passionate web development company with expertise in creating
+            dynamic, user-friendly websites. We specialize in React, Next.js,
+            and JavaScript, and are committed to crafting responsive and
+            efficient web applications. We focus on solving complex problems and
+            creating seamless user experiences.
           </p>
           <div>
             <Link
               href="/#contact"
               className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-200 text-white"
             >
-              Hire Me
+              Get in Touch
             </Link>
             <Link
-              href="/images/cv/Hamna Murtaza CV.pdf" // Correct path to the CV
-              download
+              href="/#projects"
               className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white mt-3"
             >
               <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
-                Download CV
+                View Projects
               </span>
             </Link>
           </div>
         </motion.div>
+
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}

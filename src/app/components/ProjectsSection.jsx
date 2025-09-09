@@ -8,29 +8,32 @@ const projectsData = [
   {
     id: 1,
     title: "React Portfolio Website",
-    description:"Mern Stack",
+    description: "Full-Stack MERN Development",
     image: "/images/projects/pic.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/hamnamurtaza66/portfolio-website.git",
-    previewUrl: "https://portfolio-website-lyptldqe2-hamnas-projects-a7b57d3a.vercel.app",
+    previewUrl:
+      "https://portfolio-website-lyptldqe2-hamnas-projects-a7b57d3a.vercel.app",
   },
   {
     id: 2,
     title: "Perfume E-commerce Website",
-    description:"Mern Stack",
+    description: "Full-Stack MERN Development",
     image: "/images/projects/pic7.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/hamnamurtaza66/perfume-ecommerce-site.git",
-    previewUrl: "https://perfume-ecommerce-site-u6be-2b6ekq5t8-hamnas-projects-a7b57d3a.vercel.app", 
+    previewUrl:
+      "https://perfume-ecommerce-site-u6be-2b6ekq5t8-hamnas-projects-a7b57d3a.vercel.app",
   },
   {
     id: 3,
     title: "Hospital Management System",
-    description:"PHP Project",
+    description: "Custom PHP Application",
     image: "/images/projects/pic10.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/hamnamurtaza66/Hospital-website.git",
-    previewUrl: "https://hospital-website-iinwr9mr4-hamnas-projects-a7b57d3a.vercel.app",
+    previewUrl:
+      "https://hospital-website-iinwr9mr4-hamnas-projects-a7b57d3a.vercel.app",
   },
   {
     id: 4,
@@ -42,8 +45,8 @@ const projectsData = [
   },
   {
     id: 5,
-    title: " API CRUD Operations",
-    description:"CRUD Operations",
+    title: "API CRUD Operations",
+    description: "RESTful API with CRUD Features",
     image: "/images/projects/12.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/hamnamurtaza66/pet-api.git",
@@ -51,8 +54,8 @@ const projectsData = [
   },
   {
     id: 6,
-    title: "Food_Delivery",
-    description:"Mern Stack",
+    title: "Food Delivery",
+    description: "Full-Stack MERN Development",
     image: "/images/projects/food.png",
     tag: ["All", "Web"],
     gitUrl: "/",
@@ -81,8 +84,10 @@ const ProjectsSection = () => {
   return (
     <section id="projects">
       <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
-        My Projects
+        Our Projects
       </h2>
+
+      {/* Tags */}
       <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
         <ProjectTag
           onClick={handleTagChange}
@@ -100,17 +105,18 @@ const ProjectsSection = () => {
           isSelected={tag === "Logo"}
         />
       </div>
+
+      {/* Project List */}
       <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
         {filteredProjects.map((project, index) => (
           <motion.li
-            key={index}
+            key={project.id}
             variants={cardVariants}
             initial="initial"
             animate={isInView ? "animate" : "initial"}
             transition={{ duration: 0.3, delay: index * 0.4 }}
           >
             <ProjectCard
-              key={project.id}
               title={project.title}
               description={project.description}
               imgUrl={project.image}

@@ -22,7 +22,7 @@ const achievementsList = [
   },
   {
     metric: "Technologies Learned",
-    value: "5",
+    value: "8",
     postfix: "+",
   },
 ];
