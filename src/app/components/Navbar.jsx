@@ -35,7 +35,7 @@ const Navbar = () => {
             height={70}
           />
          <span className="text-xl font-extrabold tracking-tight transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.05] bg-gradient-to-r from-indigo-400 to-fuchsia-500 bg-clip-text text-transparent">
-  KM deVeloper
+  Hamna Murtaza
 </span>
 
 

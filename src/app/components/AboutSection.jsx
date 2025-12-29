@@ -9,22 +9,25 @@ const TAB_DATA = [
     id: "skills",
     content: (
       <ul className="list-disc pl-2">
-        <li>Node.js</li>
-        <li>Express</li>
-        <li>MongoDB</li>
-        <li>JavaScript</li>
-        <li>React</li>
+        <li>HTML, CSS, Tailwind CSS, Bootstrap</li>
+        <li>JavaScript (ES6+)</li>
+        <li>React.js & Next.js</li>
+        <li>Node.js & Express.js (Basic Backend)</li>
+        <li>RESTful API Integration</li>
+        <li>WordPress (Website Development & Customization)</li>
       </ul>
     ),
   },
   {
-    title: "Technologies We Use",
+    title: "Technologies I Use",
     id: "technologies",
     content: (
       <ul className="list-disc pl-2">
-        <li>React & Next.js for Frontend Development</li>
-        <li>Node.js & Express for Backend Development</li>
-        <li>MongoDB & SQL for Database Management</li>
+        <li>React.js for Frontend Development</li>
+        <li>Node.js & Express.js for Backend APIs</li>
+        <li>MongoDB, MySQL & PostgreSQL (Neon)</li>
+        <li>Clerk for Authentication</li>
+        <li>Inngest for Background Jobs & Workflows</li>
         <li>Tailwind CSS & Bootstrap for Styling</li>
         <li>Git & GitHub for Version Control</li>
       </ul>
@@ -35,9 +38,10 @@ const TAB_DATA = [
     id: "certifications",
     content: (
       <ul className="list-disc pl-2">
-        <li>Certified MERN Stack Development Experts</li>
-        <li>Recognized for Excellence in Web Solutions</li>
-        <li>Trusted by International Clients</li>
+      <li>Web Development Bootcamp Certification (2025) – NexSkills</li>
+        <li>Hands-on Experience with Real-World Projects</li>
+        <li>Continuous Learning in Modern Web Technologies</li>
+         <li>WordPress Development Certification (2023) – DigiSkills</li>
       </ul>
     ),
   },
@@ -60,18 +64,20 @@ const AboutSection = () => {
           src="/images/about-image.png"
           width={500}
           height={500}
-          alt="About Us"
+          alt="About Me"
         />
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-4xl font-bold text-white mb-4">About Us</h2>
+          <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
+
           <p className="text-base lg:text-lg">
-            We are a dedicated group of developers specializing in MERN stack
-            development, focused on building interactive and responsive web
-            applications. Our expertise spans JavaScript, React, Redux, Node.js,
-            Express, MongoDB, HTML, CSS, and Git. We are committed to continuous
-            learning and innovation, always striving to expand our capabilities
-            and deliver exceptional digital solutions.
+            I am a passionate and detail-oriented Web Developer with a strong
+            focus on building responsive and dynamic web applications using
+            React.js. I enjoy creating clean user interfaces, integrating APIs,
+            and optimizing front-end performance. I am continuously learning
+            modern web technologies to deliver high-quality and scalable
+            solutions.
           </p>
+
           <div className="flex flex-row justify-start mt-8">
             <TabButton
               selectTab={() => handleTabChange("skills")}
@@ -83,7 +89,7 @@ const AboutSection = () => {
               selectTab={() => handleTabChange("technologies")}
               active={tab === "technologies"}
             >
-              Technologies We Use
+              Technologies I Use
             </TabButton>
             <TabButton
               selectTab={() => handleTabChange("certifications")}
@@ -92,7 +98,10 @@ const AboutSection = () => {
               Certifications
             </TabButton>
           </div>
-          <div className="mt-8">{TAB_DATA.find((t) => t.id === tab).content}</div>
+
+          <div className="mt-8">
+            {TAB_DATA.find((t) => t.id === tab).content}
+          </div>
         </div>
       </div>
     </section>

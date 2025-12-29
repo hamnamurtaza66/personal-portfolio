@@ -47,9 +47,9 @@ const EmailSection = () => {
           Let&apos;s Connect
         </h5>
         <p className="text-[#ADB7BE] mb-4 max-w-md">
-          We are always open to discussing new opportunities and collaborations.
+          I am always open to discussing new opportunities and collaborations.
           Whether you have a project in mind, a question, or just want to connect,
-          feel free to reach out — we’ll get back to you as soon as possible!
+          feel free to reach out — I’ll get back to you as soon as possible!
 
           <br />
           <span className="text-white">Email:</span>
