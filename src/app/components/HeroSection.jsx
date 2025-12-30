@@ -25,12 +25,11 @@ const HeroSection = () => {
             <br />
             <TypeAnimation
               sequence={[
-                "React.js Web Developer",
-                1200,
-                "Frontend & Full-Stack Projects",
-                1200,
-                "Clean UI • Scalable Code",
-                1200,
+      "Mern Stack Developer", // type karega
+      1200,                   // 1.2s rukega
+      "",                     // delete karega
+      500,                    // 0.5s pause
+    
               ]}
               wrapper="span"
               speed={50}

@@ -17,31 +17,30 @@ const projectsData = [
   },
   {
     id: 2,
-    title: "Perfume E-commerce Website",
-    description: "Full-Stack MERN Development",
-    image: "/images/projects/pic7.png",
+    title: "AI Powered Blog App",
+    description: "Full-Stack Blog App using MERN Stack, Google Gemini API & ImageKit",
+    image: "/images/projects/blog.png",
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/hamnamurtaza66/perfume-ecommerce-site.git",
-    previewUrl:
-      "https://perfume-ecommerce-site-u6be-2b6ekq5t8-hamnas-projects-a7b57d3a.vercel.app",
+    gitUrl: "https://github.com/hamnamurtaza66/QuickBlog.git",
+    previewUrl: "https://www.kmblogs.com",
   },
   {
     id: 3,
-    title: "Hospital Management System",
-    description: "Custom PHP Application",
-    image: "/images/projects/pic10.png",
+    title: "DevDeck Website",
+    description: "A WordPress website showcasing Marketing and IT solutions.",
+    image: "/images/projects/devdeck.png",
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/hamnamurtaza66/Hospital-website.git",
-    previewUrl:
-      "https://hospital-website-iinwr9mr4-hamnas-projects-a7b57d3a.vercel.app",
+    gitUrl: "/",
+    previewUrl: "https://devdeck.net",
   },
   {
     id: 4,
-    title: "Logo Design",
-    image: "/images/projects/logo2.png",
+    title: "Project Management App",
+    description: "PERN Stack Project (PostgreSQL,Express,React,Node)",
+    image: "/images/projects/project-management.png",
     tag: ["All", "Logo"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://github.com/hamnamurtaza66/project-management.git",
+    previewUrl: "https://project-mgt-theta.vercel.app",
   },
   {
     id: 5,
@@ -87,7 +86,7 @@ const ProjectsSection = () => {
         My Projects
       </h2>
 
-      {/* Tags */}
+      {/* Tags
       <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
         <ProjectTag
           onClick={handleTagChange}
@@ -104,7 +103,7 @@ const ProjectsSection = () => {
           name="Logo"
           isSelected={tag === "Logo"}
         />
-      </div>
+      </div> */}
 
       {/* Project List */}
       <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
